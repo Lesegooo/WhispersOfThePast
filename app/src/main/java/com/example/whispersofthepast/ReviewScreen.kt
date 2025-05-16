@@ -27,7 +27,8 @@ class ReviewScreen : ComponentActivity() {
                 horizontalAlignment = Alignment.Start
             ) {
                 // Display score
-                Text(text = "Your Score: $score/${questions.size}")
+                Text(text = "Your Score: $score/${questions.size}",
+                )
 
                 // Loop through questions and answers
                 for (i in questions.indices) {
@@ -36,7 +37,7 @@ class ReviewScreen : ComponentActivity() {
                     val isCorrect = question.answer == userAnswer
 
                     // Display the question
-                    Text(text = "Q${i + 1}: ${question.text}")
+                    Text(text = "Q${i + 1}: ${question.text}",modifier = Modifier.padding(18.dp))
                     Text(text = "Correct Answer: ${if (question.answer) "True" else "False"}")
                     Text(text = "Your Answer: ${if (userAnswer) "True" else "False"}")
                     Text(text = "Result: ${if (isCorrect) "Correct" else "Incorrect"}")

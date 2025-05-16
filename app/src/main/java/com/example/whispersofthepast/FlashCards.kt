@@ -56,7 +56,7 @@ class FlashCards : ComponentActivity() {
                     true
                 ),
                 Question(
-                    "Nelson Mandela was the first President of South Africa after apartheid ended.",
+                    "Nelson Mandela was the first black President of South Africa after apartheid ended.",
                     true
                 ),
                 Question("The Enlightenment was a cultural movement in 1453.", true),

@@ -15,8 +15,10 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.whispersofthepast.ui.theme.WhispersOfThePastTheme
 
 class ResultsActivity : ComponentActivity() {
@@ -30,7 +32,10 @@ class ResultsActivity : ComponentActivity() {
             val score = intent.getIntExtra("score",0)
 
             Column {
-                Text(text = "Your Score: $score/${ questions.size}")
+                Text(text = "Your Score: $score/${ questions.size}",
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.padding(18.dp))
 
                 //Loop through questions and answers
                 for (i in questions.indices){
@@ -39,7 +44,7 @@ class ResultsActivity : ComponentActivity() {
                     val isCorrect = question.answer == userAnswer
 
                     //Output the questions
-                    Text(text = "Q${i + 1}: ${question.text}")
+                    Text(text = "Q${i + 1}: ${question.text}",modifier = Modifier.padding(18.dp))
                     Text(text = "Correct Answer: ${if (question.answer as Boolean) "True" else "False"}")
                     Text(text = "Your Answer: ${if (userAnswer) "True" else "False"}")
                     Text(text = "Result: ${if (isCorrect) "True" else "False"}")
@@ -48,7 +53,7 @@ class ResultsActivity : ComponentActivity() {
                 // Retry button to start the quiz
                 Button(onClick = {
                     //Restart the FlashCard screen
-                    val intent = Intent(this@ResultsActivity, ReviewScreen::class.java)
+                    val intent = Intent(this@ResultsActivity, FlashCards::class.java)
                     startActivity(intent)
                     finish()
                 }) {
